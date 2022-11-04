@@ -11,8 +11,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
         for(var i = -firstDayOfWeek,index = 0; i < (42-firstDayOfWeek); i++,index++){
             let dt = new Date(ano,mes,i);
+            let dtNow = new Date;
             let dayTable = tableDays.getElementsByTagName('td')[index];
+            dayTable.classList.remove('mes-anterior');
+            dayTable.classList.remove('proximo-mes');
             dayTable.innerHTML = dt.getDate();
+
+            if(dt.getFullYear() == dtNow.getFullYear() && dt.getMonth == dtNow.getMonth && dt.getDate() == dtNow.getDate()){
+                
+            }
 
             if(i < 1) {
                 dayTable.classList.add('mes-anterior')
@@ -27,15 +34,23 @@ document.addEventListener('DOMContentLoaded', function() {
     let ano = now.getFullYear()
     GetDaysCalendar(mes,ano);
 
-    const botao_proximo = document.getElementById('btn-prev')
-    const botao_anterior = document.getElementById('btn-ant')
+    const botao_proximo = document.getElementById('btn-prev');
+    const botao_anterior = document.getElementById('btn-ant');
 
     botao_proximo.onclick = function(){
         mes++;
+        if(mes > 11) {
+            mes = 0;
+            ano++;
+        }
         GetDaysCalendar(mes,ano);
     }
     botao_anterior.onclick = function(){
         mes--;
+        if(mes < 0) {
+            mes = 11;
+            ano--;
+        }
         GetDaysCalendar(mes,ano);
     }
 })
