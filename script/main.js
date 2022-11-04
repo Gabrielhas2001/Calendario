@@ -15,10 +15,11 @@ document.addEventListener('DOMContentLoaded', function() {
             let dayTable = tableDays.getElementsByTagName('td')[index];
             dayTable.classList.remove('mes-anterior');
             dayTable.classList.remove('proximo-mes');
+            dayTable.classList.remove('dia-atual');
             dayTable.innerHTML = dt.getDate();
 
             if(dt.getFullYear() == dtNow.getFullYear() && dt.getMonth == dtNow.getMonth && dt.getDate() == dtNow.getDate()){
-                
+                dayTable.classList.add('dia-atual')
             }
 
             if(i < 1) {
