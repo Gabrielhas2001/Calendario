@@ -55,7 +55,6 @@ h2 {
     font-weight: 600;
     text-transform: uppercase;
 }
-
 .calendario td {
     border: 1px solid #cbd1d2;
     height: 71.4px;
@@ -83,7 +82,6 @@ h2 {
 .event {
     position: relative;
 }
-
 .event:after {
     content: '';
     width: 7px;
